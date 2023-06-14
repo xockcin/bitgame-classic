@@ -1,9 +1,23 @@
 import logo from './logo.svg'
 import './App.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [currentByte, setCurrentByte] = useState(0)
+  const [originByte, setOriginByte] = useState(0)
+  const [goalByte, setGoalByte] = useState(0)
+
+  const newGame = () => {
+    const origin = Math.floor(Math.random() * 256)
+    const goal = Math.floor(Math.random() * 256)
+    setOriginByte(origin)
+    setGoalByte(goal)
+    setCurrentByte(origin)
+  }
+
+  useEffect(() => {
+    newGame()
+  },[])
 
   const tokens = ["+", "<", "~", ">", "-"]
 
@@ -43,9 +57,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{currentByte}</h1>
+      <h1>start: {originByte} *** goal: {goalByte}</h1>
+      <h1>current: {currentByte}</h1>
       <h1>{byteFromNumber(currentByte).reverse().toString()}</h1>
       {tokens.map(token => <button onClick={() => handleClick(token)}>{token}</button>)}
+      <button onClick={newGame}>new game</button>
     </div>
   );
 }
