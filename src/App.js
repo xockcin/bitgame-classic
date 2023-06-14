@@ -44,11 +44,7 @@ function App() {
   return (
     <div className="App">
       <h1>{byteFromNumber(currentByte).reverse().toString()}</h1>
-      <button onClick={() => handleClick("+")}>increment</button>
-      <button onClick={() => handleClick("<")}>left shift</button>
-      <button onClick={() => handleClick("~")}>complement</button>
-      <button onClick={() => handleClick(">")}>right shift</button>
-      <button onClick={() => handleClick("-")}>decrement</button>
+      {tokens.map(token => <button onClick={() => handleClick(token)}>{token}</button>)}
     </div>
   );
 }
