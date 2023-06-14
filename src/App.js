@@ -29,6 +29,10 @@ function App() {
     }
   }
 
+  const handleClick = () => {
+    setCurrentByte(255 - currentByte)
+  }
+
   const byteFromNumber = (number) => {
     const newByte = [];
     for (let i = 0; i < 8; i++) {
@@ -40,6 +44,7 @@ function App() {
   return (
     <div className="App">
       <h1>{byteFromNumber(currentByte).toString()}</h1>
+      <button onClick={handleClick}>hello</button>
     </div>
   );
 }
