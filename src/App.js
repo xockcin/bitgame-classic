@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{byteFromNumber(currentByte).toString()}</h1>
+      <h1>{byteFromNumber(currentByte).reverse().toString()}</h1>
       <button onClick={() => handleClick("+")}>increment</button>
       <button onClick={() => handleClick("<")}>left shift</button>
       <button onClick={() => handleClick("~")}>complement</button>
