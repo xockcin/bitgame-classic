@@ -29,8 +29,8 @@ function App() {
     }
   }
 
-  const handleClick = () => {
-    setCurrentByte(doToken(currentByte, "~", 256))
+  const handleClick = (token) => {
+    setCurrentByte(doToken(currentByte, token, 256))
   }
 
   const byteFromNumber = (number) => {
@@ -44,7 +44,11 @@ function App() {
   return (
     <div className="App">
       <h1>{byteFromNumber(currentByte).toString()}</h1>
-      <button onClick={handleClick}>hello</button>
+      <button onClick={() => handleClick("+")}>increment</button>
+      <button onClick={() => handleClick("<")}>left shift</button>
+      <button onClick={() => handleClick("~")}>complement</button>
+      <button onClick={() => handleClick(">")}>right shift</button>
+      <button onClick={() => handleClick("-")}>decrement</button>
     </div>
   );
 }
