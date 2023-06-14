@@ -43,6 +43,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>{currentByte}</h1>
       <h1>{byteFromNumber(currentByte).reverse().toString()}</h1>
       {tokens.map(token => <button onClick={() => handleClick(token)}>{token}</button>)}
     </div>
