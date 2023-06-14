@@ -30,7 +30,7 @@ function App() {
   }
 
   const handleClick = () => {
-    setCurrentByte(255 - currentByte)
+    setCurrentByte(doToken(currentByte, "~", 256))
   }
 
   const byteFromNumber = (number) => {
