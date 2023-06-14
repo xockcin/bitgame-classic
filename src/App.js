@@ -5,6 +5,8 @@ import { useState } from 'react';
 function App() {
   const [currentByte, setCurrentByte] = useState(0)
 
+  const tokens = ["+", "<", "~", ">", "-"]
+
   const doToken = (number, token, size) => {
     switch (token) {
       case "+":
