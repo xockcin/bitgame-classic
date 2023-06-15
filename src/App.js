@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [currentByte, setCurrentByte] = useState(0)
-  const [originByte, setOriginByte] = useState(0)
-  const [goalByte, setGoalByte] = useState(0)
+  const [originByte, setOriginByte] = useState(null)
+  const [goalByte, setGoalByte] = useState(null)
 
   const newGame = () => {
     const origin = Math.floor(Math.random() * 256)
@@ -55,7 +55,7 @@ function App() {
     return newByte;
   }
 
-  return (
+  const gameScreen = (
     <div className="App">
       <h1>start: {originByte} *** goal: {goalByte}</h1>
       <h1>current: {currentByte}</h1>
@@ -63,6 +63,10 @@ function App() {
       {tokens.map(token => <button onClick={() => handleClick(token)}>{token}</button>)}
       <button onClick={newGame}>new game</button>
     </div>
+  )
+
+  return (
+    gameScreen
   );
 }
 
