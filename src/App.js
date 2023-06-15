@@ -65,8 +65,15 @@ function App() {
     </div>
   )
 
+  const winScreen = (
+    <div>
+      <h1>You Win!</h1>
+      <button onClick={newGame}>play again</button>
+    </div>
+  )
+
   return (
-    gameScreen
+    (currentByte === goalByte) ? winScreen : gameScreen
   );
 }
 
