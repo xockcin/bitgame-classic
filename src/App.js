@@ -5,7 +5,7 @@ function App() {
   const [currentByte, setCurrentByte] = useState(0)
   const [originByte, setOriginByte] = useState(null)
   const [goalByte, setGoalByte] = useState(null)
-  const [steps, setSteps] = useState([])
+  const [stepsList, setStepsList] = useState([])
 
   const newGame = () => {
     const origin = Math.floor(Math.random() * 256)
@@ -13,7 +13,7 @@ function App() {
     setOriginByte(origin)
     setGoalByte(goal)
     setCurrentByte(origin)
-    setSteps([])
+    setStepsList([])
   }
 
   useEffect(() => {
@@ -46,7 +46,7 @@ function App() {
 
   const handleClick = (token) => {
     setCurrentByte(doToken(currentByte, token, 256))
-    setSteps(steps.concat(token))
+    setStepsList(stepsList.concat(token))
   }
 
   const byteFromNumber = (number) => {
@@ -57,12 +57,12 @@ function App() {
     return newByte;
   }
 
-  const gameScreen = (
-    <div className="App">
-      <h1>start: {originByte} *** goal: {goalByte}</h1>
-      <h1>current: {currentByte}</h1>
+  const GameScreen = ({origin, current, goal, steps, handleClick}) => (
+    <div>
+      <h1>start: {origin} *** goal: {goal}</h1>
+      <h1>current: {current}</h1>
       <h1>steps: {steps.toString()}</h1>
-      <h1>{byteFromNumber(currentByte).reverse().toString()}</h1>
+      <h1>{byteFromNumber(current).reverse().toString()}</h1>
       {tokens.map(token => <button onClick={() => handleClick(token)}>{token}</button>)}
       <button onClick={newGame}>new game</button>
     </div>
@@ -70,13 +70,13 @@ function App() {
 
   const winScreen = (
     <div>
-      <h1>You Won in {steps.length} steps!</h1>
+      <h1>You Won in {stepsList.length} steps!</h1>
       <button onClick={newGame}>play again</button>
     </div>
   )
 
   return (
-    (currentByte === goalByte) ? winScreen : gameScreen
+    (currentByte === goalByte) ? winScreen : <GameScreen origin={originByte} current={currentByte} goal={goalByte} steps={stepsList} handleClick={handleClick}  />
   );
 }
 
