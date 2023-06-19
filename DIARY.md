@@ -22,3 +22,7 @@ Step 2 - Game - is complete.
 I have not put in Redux yet, and might not. Need to review useContext first.
 
 Next step is Difficulty, which will be a little tricky because I'll need to review and reimplement that algorithm that finds all the answers. For now I will spend some time reading the documentation.
+
+### 6/18/23
+
+Componentized winscreen and gamescreen. The latter has a ton of props, perhaps too many. Should review how reducer and context work.
