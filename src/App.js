@@ -57,7 +57,7 @@ function App() {
     return newByte;
   }
 
-  const GameScreen = ({origin, current, goal, steps, handleClick}) => (
+  const GameScreen = ({origin, current, goal, steps, handleClick, byteFromNumber, tokens, newGame}) => (
     <div>
       <h1>start: {origin} *** goal: {goal}</h1>
       <h1>current: {current}</h1>
@@ -78,7 +78,7 @@ function App() {
   return (
     (currentByte === goalByte) ? 
       <WinScreen stepsList={stepsList} newGame={newGame} /> : 
-      <GameScreen origin={originByte} current={currentByte} goal={goalByte} steps={stepsList} handleClick={handleClick}  />
+      <GameScreen origin={originByte} current={currentByte} goal={goalByte} steps={stepsList} handleClick={handleClick} byteFromNumber={byteFromNumber} tokens={tokens} newGame={newGame}  />
   );
 }
 
