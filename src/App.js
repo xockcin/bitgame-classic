@@ -6,6 +6,7 @@ function App() {
   const [originByte, setOriginByte] = useState(null)
   const [goalByte, setGoalByte] = useState(null)
   const [stepsList, setStepsList] = useState([])
+  const [peek, setPeek] = useState(false)
 
   const newGame = () => {
     const origin = Math.floor(Math.random() * 256)
@@ -71,14 +72,15 @@ function App() {
     </div>
   )
 
-  const GameScreen = ({origin, current, goal, steps, handleClick, byteFromNumber, tokens, newGame}) => (
+  const GameScreen = ({origin, current, goal, steps, handleClick, tokens, newGame}) => (
     <div>
       <h1>start: {origin} *** goal: {goal}</h1>
       <h1>current: {current}</h1>
       <h1>steps: {steps.toString()}</h1>
-      <GameByte number={current} />
+      <GameByte number={peek ? goal : current} />
       {tokens.map(token => <button onClick={() => handleClick(token)}>{token}</button>)}
       <button onClick={newGame}>new game</button>
+      <button onMouseDown={() => setPeek(true)} onMouseUp={() => setPeek(false)}>peek</button>
     </div>
   )
 
