@@ -1,5 +1,6 @@
 import './App.css'
 import { useState, useEffect } from 'react';
+import { allSolutions } from './utilities/makeSolutions';
 
 function App() {
   const [currentByte, setCurrentByte] = useState(0)
@@ -7,6 +8,7 @@ function App() {
   const [goalByte, setGoalByte] = useState(null)
   const [stepsList, setStepsList] = useState([])
   const [peek, setPeek] = useState(false)
+  const [cheat, setCheat] = useState(null)
 
   const newGame = () => {
     const origin = Math.floor(Math.random() * 256)
@@ -15,6 +17,7 @@ function App() {
     setGoalByte(goal)
     setCurrentByte(origin)
     setStepsList([])
+    setCheat(allSolutions[origin][goal].solution)
   }
 
   useEffect(() => {
@@ -93,6 +96,7 @@ function App() {
   const WinScreen = ({stepsList, newGame}) => (
     <div>
       <h1>You Won in {stepsList.length} steps!</h1>
+      <h1>Best possible solution: {cheat.length} steps</h1>
       <button onClick={newGame}>play again</button>
     </div>
   )
