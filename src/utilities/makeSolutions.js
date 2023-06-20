@@ -77,14 +77,12 @@ const makeAllSolutions = (size, tokens) => {
 
   zeroSteps();
   oneSteps();
-  let steps = 2;
   //i.e. while there are still any unsolved pairs
   while (
     _.flatten(solutionsGrid).filter((item) => item.solution === "none").length >
     0
   ) {
-    addSteps();
-    steps++;
+    addSteps()
   }
 
   return solutionsGrid
