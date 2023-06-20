@@ -72,13 +72,19 @@ function App() {
     </div>
   )
 
+  const KeyPad = ({tokens}) => (
+    <div>
+      {tokens.map(token => <button onClick={() => handleClick(token)}>{token}</button>)}
+    </div>
+  )
+
   const GameScreen = ({origin, current, goal, steps, handleClick, tokens, newGame}) => (
     <div>
       <h1>start: {origin} *** goal: {goal}</h1>
       <h1>current: {current}</h1>
       <h1>steps: {steps.toString()}</h1>
       <GameByte number={peek ? goal : current} />
-      {tokens.map(token => <button onClick={() => handleClick(token)}>{token}</button>)}
+      <KeyPad tokens={tokens} />
       <button onClick={newGame}>new game</button>
       <button onMouseDown={() => setPeek(true)} onMouseUp={() => setPeek(false)}>peek</button>
     </div>
