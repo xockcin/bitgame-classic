@@ -57,6 +57,12 @@ function App() {
     return newByte;
   }
 
+  const Bit = ({value}) => (
+    <div style={value ? {color: "yellow"} : {color: 'black'}}>
+      {value ? "1" : "0"}
+    </div>
+  )
+
   const GameScreen = ({origin, current, goal, steps, handleClick, byteFromNumber, tokens, newGame}) => (
     <div>
       <h1>start: {origin} *** goal: {goal}</h1>
