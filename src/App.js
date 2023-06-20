@@ -57,9 +57,15 @@ function App() {
     return newByte;
   }
 
-  const Bit = ({value}) => (
+  const BitDiv = ({value}) => (
     <div style={value ? {color: "yellow"} : {color: 'black'}}>
       {value ? "1" : "0"}
+    </div>
+  )
+
+  const GameByte = ({number}) => (
+    <div>
+      {byteFromNumber(number).reverse().map(bit => BitDiv(bit))}
     </div>
   )
 
