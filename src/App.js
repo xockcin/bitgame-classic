@@ -58,14 +58,16 @@ function App() {
   }
 
   const BitDiv = ({value}) => (
-    <div style={value ? {color: "yellow"} : {color: 'black'}}>
-      {value ? "1" : "0"}
+    <div style={{borderStyle: "solid", padding: "2px", margin: "2px"}}>
+      <div style={value ? {background: "yellow"} : {background: 'black', color: "white"}}>
+        <h3>{value ? "1" : "0"}</h3>
+      </div>
     </div>
   )
 
   const GameByte = ({number}) => (
-    <div>
-      {byteFromNumber(number).reverse().map(bit => BitDiv(bit))}
+    <div style={{display: "flex"}}>
+      {byteFromNumber(number).reverse().map(bit => <BitDiv value={bit} />)}
     </div>
   )
 
@@ -74,7 +76,7 @@ function App() {
       <h1>start: {origin} *** goal: {goal}</h1>
       <h1>current: {current}</h1>
       <h1>steps: {steps.toString()}</h1>
-      <h1>{byteFromNumber(current).reverse().toString()}</h1>
+      <GameByte number={current} />
       {tokens.map(token => <button onClick={() => handleClick(token)}>{token}</button>)}
       <button onClick={newGame}>new game</button>
     </div>
