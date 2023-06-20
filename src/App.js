@@ -103,8 +103,18 @@ function App() {
 
   return (
     (currentByte === goalByte) ? 
-      <WinScreen stepsList={stepsList} newGame={newGame} /> : 
-      <GameScreen origin={originByte} current={currentByte} goal={goalByte} steps={stepsList} tokens={tokens} newGame={newGame}  />
+      <WinScreen 
+        stepsList={stepsList} 
+        newGame={newGame} 
+      /> : 
+      <GameScreen 
+        origin={originByte} 
+        current={currentByte} 
+        goal={goalByte} 
+        steps={stepsList} 
+        tokens={tokens} 
+        newGame={newGame}  
+      />
   );
 }
 
