@@ -1,5 +1,5 @@
 const TOKENS = ["+", "<", "~", ">", "-"];
-const SIZE = 16;
+const SIZE = 256;
 
 const _ = require("lodash");
 
