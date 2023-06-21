@@ -26,3 +26,14 @@ Next step is Difficulty, which will be a little tricky because I'll need to revi
 ### 6/18/23
 
 Componentized winscreen and gamescreen. The latter has a ton of props, perhaps too many. Should review how reducer and context work.
+
+### 6/21/23
+
+No new code, just a few thoughts:
+1. Use Redux instead of useContext. More boilerplate, but better. Use it to store game and token data. Will need to review it. I remember that it's easier than it used to be.
+2. Figure out the rules. Bitmoves and peeking should both cost one token each. Getting to a solution should earn you tokens, but the question is how much? There should be a bonus for getting an optimal solution. How much baseline and how much bonus? First step should be to implement tokens. Choose however much for costs. Then play around with it.
+3. Figure out how to implement difficulty. Shouldn't be too hard. Use already-existing data if necessary.
+4. Declutter program by sorting components into their own files. Move states and functions that alter state into Redux.
+5. Make it look good! Use React Bootstrap. Be sure it's responsive.
+
+I expect none of this will get done before the trip to Spain. Start with Redux next time I have time to work on it.
